@@ -1,0 +1,33 @@
+<form action="#" class="t-header-search-box">
+  <div class="input-group">
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pesquisar" autocomplete="off">
+    <button class="btn btn-primary" type="submit"><fa-icon [icon]="faSearch"></fa-icon></button>
+  </div>
+</form>
+<div class="container">
+  <br>
+  <div class="list-group">
+    <a *ngFor="let clienteLista of _clientesSearch" href="#"
+      class="list-group-item list-group-item-action">{{clienteLista.nome}}</a>
+  </div>
+  <br>
+  <div class="row">
+    <div *ngFor="let clientes of _clientes" class="col-12 col-sm-6 col-md-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="author">
+            <a href="#">
+              <img src="{{clientes.imagem}}" alt="" class="avatar-big img-raised border-gray">
+            </a>
+          </div>
+          <p class="card-description">
+            <b>{{clientes.nome}}</b>
+          </p>
+          <hr>
+          <button class="btn btn-dark btn-block">Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

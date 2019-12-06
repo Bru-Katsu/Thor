@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col division">
+      <div class="row" style="height: 100%;">
+        <div class="col-sm-6">
+          <img src="https://static.collectui.com/shots/3281515/intelligent-change-large" class="img-fluid" alt="">
+        </div>
+        <div class="col-sm-6">
+          <form class="form-row" [formGroup]="_ProdutoForm">
+            <div class="col-sm-12">
+              <label for="basic-url">Título</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="titulo" formControlName="titulo">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <label for="basic-url">Descrição</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="descricao" formControlName="descricao">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label for="basic-url">SKU</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="SKU" formControlName="sku">
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="basic-url">Valor de venda</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="valorVDA" formControlName="valorVDA">
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="basic-url">Valor de compra</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="valorCPA" formControlName="valorCPA">
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn btn-outline-primary btn-block">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

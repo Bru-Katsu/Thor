@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <button (click)="abreModal()" class="btn btn-pesquisa" type="button">Novo produto</button>
+    </div>
+    <input #InputProduto type="text" (input)="PesquisaProduto(InputProduto.value)" class="form-control" placeholder="Pequisar por produto" aria-label="PesquisaProduto">
+  </div>
+  <div class="list-group">
+    <a *ngFor="let produtoLista of _produtosSearch" href="#" class="list-group-item list-group-item-action">{{produtoLista.descricao}}</a>
+  </div>
+  <br>
+  <div>
+    <thor-card-default [_produtos]="_produtos" class="row"></thor-card-default>
+  </div>
+</div>
+<div #template class="modal fade" id="ModalProduto" tabindex="-1" role="dialog" aria-labelledby="ModalProduto" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="produtoModalTitle">Dados do produto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="registerForm">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="descricao">Descrição</label>
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('descricao').errors && registerForm.get('descricao').touched}" formControlName="descricao">
+              <div *ngIf="registerForm.get('descricao').hasError('required') && registerForm.get('descricao').touched" class="invalid-feedback">
+                A descricao é obrigatório.
+              </div>
+              <div *ngIf="registerForm.get('descricao').hasError('minlength')" class="invalid-feedback">
+                A descricao deve ter no mínimo 1 caractere.
+              </div>
+              <div *ngIf="registerForm.get('descricao').hasError('maxlength')" class="invalid-feedback">
+                A descricao deve ter no máximo 100 caracteres.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="valorCPA">Valor de Compra</label>
+              <input type="number" class="form-control" [ngClass]="{'is-invalid': registerForm.get('valorCPA').errors && registerForm.get('valorCPA').touched}" formControlName="valorCPA">
+              <div *ngIf="registerForm.get('valorCPA').hasError('required') && registerForm.get('valorCPA').touched" class="invalid-feedback">
+                O valor de compra é obrigatório.
+              </div>
+              <div *ngIf="registerForm.get('valorCPA').hasError('min')" class="invalid-feedback">
+                O valor de compra deve ter um valor de no mínimo 0.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="valorVDA">Valor de venda</label>
+              <input type="number" class="form-control" [ngClass]="{'is-invalid': registerForm.get('valorVDA').errors && registerForm.get('valorVDA').touched}" formControlName="valorVDA">
+              <div *ngIf="registerForm.get('valorVDA').hasError('required') && registerForm.get('valorVDA').touched" class="invalid-feedback">
+                O valor de venda é obrigatório.
+              </div>
+              <div *ngIf="registerForm.get('valorVDA').hasError('min')" class="invalid-feedback">
+                O valor de venda deve ter um valor de no mínimo 0.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="qtdEstoque">Quantidade em estoque</label>
+              <input type="number" class="form-control" [ngClass]="{'is-invalid': registerForm.get('qtdEstoque').errors && registerForm.get('qtdEstoque').touched}" formControlName="qtdEstoque">
+              <div *ngIf="registerForm.get('qtdEstoque').hasError('required') && registerForm.get('qtdEstoque').touched" class="invalid-feedback">
+                O estoque é obrigatório.
+              </div>
+              <div *ngIf="registerForm.get('qtdEstoque').hasError('min')" class="invalid-feedback">
+                O estoque deve ter um valor de no mínimo 1 .
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="imgURL">Imagem</label>
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('imgURL').errors && registerForm.get('imgURL').touched}" formControlName="imgURL">
+              <div *ngIf="registerForm.get('imgURL').hasError('required') && registerForm.get('imgURL').touched" class="invalid-feedback">
+                A imagem é obrigatório.
+              </div>
+              <div *ngIf="registerForm.get('imgURL').hasError('minlength')" class="invalid-feedback">
+                A imagem deve ter no mínimo 1 caractere.
+              </div>
+              <div *ngIf="registerForm.get('imgURL').hasError('maxlength')" class="invalid-feedback">
+                A imagem deve ter no máximo 200 caracteres.
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary ml-auto" [disabled]="!registerForm.valid" (click)="salvarAlteracoes()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

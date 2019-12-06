@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  <div class="col-sm-12">
+    <input type="text" class="form-control" placeholder="Pequisar por cliente">
+  </div>
+  <br>
+  <div *ngFor="let pedido of pedidos" class="col-sm-12">
+    <br>
+    <div class="card">
+      <div class="card-header">Pedido #{{pedido.id}}</div>
+      <div class="card-body">
+        <h5 class="card-title">Cliente: {{pedido.cliente.nome}}</h5>
+        <p class="card-text">Valor total: {{pedido.valor | currency:'BRL'}}</p>
+        <a href="#" class="btn btn-dark">Ver detalhes</a>
+      </div>
+    </div>
+  </div>
+</div>

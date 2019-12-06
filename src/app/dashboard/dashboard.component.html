@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-sm-12 col-12 col-lg-8">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Estoque total</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Mais vendidos</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Estoque critico</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Mais vendidos sei lá</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-12 col-md-12 col-lg-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">últimos pedidos</h5>
+          <div *ngFor="let ulpedido of pedidos">
+            <hr>    
+            <h6 class="card-subtitle mb-2 text-muted">Cliente: {{ulpedido.cliente.nome}}</h6>
+            <p class="card-text">Pedido #{{ulpedido.id}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

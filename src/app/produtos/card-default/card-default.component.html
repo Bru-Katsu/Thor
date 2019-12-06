@@ -1,0 +1,13 @@
+<div *ngFor="let produtos of _produtos" class="col-12 col-sm-6 col-md-4">
+  <div class="card">
+    <img src="{{produtos.imagem}}" class="card-img-top" alt="">
+    <div class="card-body card h-100">
+      <h5 class="card-title text-center">{{produtos.descricao}}</h5>
+      <hr>
+      <p class="card-text"><b> Valor:</b> {{produtos.valorVDA | currency:'BRL':true:'1.2-2'}}</p>
+      <p class="card-text"><b> Estoque(PC/UN):</b> {{produtos.estoque.quantidadeEmpenhada}}</p>
+      <a [routerLink]="['editar', produtos.id]" class="btn btn-dark btn-block">Editar</a>
+    </div>
+  </div>
+  <br>
+</div>

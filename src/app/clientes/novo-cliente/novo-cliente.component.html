@@ -1,0 +1,84 @@
+<div class="container">
+  <form [formGroup]="registerForm">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-row">
+          <img src="/assets/img/clientes/default-user.jpg" class="img-fluid img-modal mx-auto d-block" alt="">
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div *ngIf="_commandNotification != undefined">
+          <div *ngFor="let teste of _commandNotification">
+            <p>{{teste.property}}</p>
+            <p>{{teste.message}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': registerForm.get('nome').errors && registerForm.get('nome').touched}"
+              formControlName="nome">
+            <div *ngIf="registerForm.get('nome').hasError('required') && registerForm.get('nome').touched"
+              class="invalid-feedback">
+              O nome é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('minlength')" class="invalid-feedback">
+              O nome deve ter no mínimo 1 caractere.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('maxlength')" class="invalid-feedback">
+              O nome deve ter no máximo 50 caracteres.
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': registerForm.get('sobrenome').errors && registerForm.get('sobrenome').touched}"
+              formControlName="sobrenome">
+            <div
+              *ngIf="registerForm.get('sobrenome').hasError('required') && registerForm.get('sobrenome').touched"
+              class="invalid-feedback">
+              O sobrenome é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('sobrenome').hasError('minlength')" class="invalid-feedback">
+              O sobrenome deve ter no mínimo 1 caractere.
+            </div>
+            <div *ngIf="registerForm.get('sobrenome').hasError('maxlength')" class="invalid-feedback">
+              O sobrenome deve ter no máximo 50 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" formControlName="telefone">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="documento">Documento</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('documento').errors && registerForm.get('documento').touched}" formControlName="documento">
+            <div *ngIf="registerForm.get('documento').hasError('required') && registerForm.get('documento').touched" class="invalid-feedback">
+              O documento é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('documento').hasError('minlength')" class="invalid-feedback">
+              O documento deve ter no mínimo 8 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" formControlName="email">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-primary ml-auto" [disabled]="!registerForm.valid"
+        (click)="salvarAlteracoes()">Salvar</button>
+    </div>
+  </form>
+</div>
+

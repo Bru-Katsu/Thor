@@ -1,0 +1,109 @@
+<div class="page-body">
+  <div class="sidebar">
+    <div class="user-profile">
+      <div class="display-avatar animated-avatar">
+        <img class="profile-img img-lg rounded-circle" src="./../assets/img/clientes/48935225_1726985467405282_8842546666927030272_n.jpg" alt="profile image">
+      </div>
+      <div class="info-wrapper">
+        <p class="user-name">{{username}}</p>
+        <h6 class="display-income">Bem vindo ao Thor!</h6>
+      </div>
+    </div>
+    <ul class="navigation-menu">
+      <li class="nav-category-divider">Recursos</li>
+      <li>
+        <a routerLink="dashboard">
+          <span class="link-title">Dashboard</span>
+          <fa-icon [icon]="faChartBar"></fa-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#produtos" data-toggle="collapse" aria-expanded="false">
+          <span class="link-title">Produtos</span>
+          <fa-icon [icon]="faChartBar"></fa-icon>
+        </a>
+        <ul class="collapse navigation-submenu" id="produtos">
+          <li>
+            <a routerLink="produtos">Lista de produtos</a>
+          </li>
+          <li>
+            <a routerLink="produtos/novo-produto">Novo produto</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#clientes" data-toggle="collapse" aria-expanded="false">
+          <span class="link-title"> Clientes</span>
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+        <ul class="collapse navigation-submenu" id="clientes">
+          <li>
+            <a routerLink="clientes">Lista de clientes</a>
+          </li>
+          <li>
+            <a routerLink="novo-cliente">Novo cliente</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pedidos" data-toggle="collapse" aria-expanded="false">
+          <span class="link-title"> Pedidos</span>
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+        <ul class="collapse navigation-submenu" id="pedidos">
+          <li>
+            <a routerLink="pedidos">Lista de pedidos</a>
+          </li>
+          <li>
+            <a routerLink="novo-pedido">Novo pedido</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#compras" data-toggle="collapse" aria-expanded="false">
+          <span class="link-title"> Compras</span>
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+        <ul class="collapse navigation-submenu" id="compras">
+          <li>
+            <a routerLink="pedidos">Lista de compras</a>
+          </li>
+          <li>
+            <a routerLink="novo-pedido">Nova compra</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#estoque" data-toggle="collapse" aria-expanded="false">
+          <span class="link-title"> Estoque</span>
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+        <ul class="collapse navigation-submenu" id="estoque">
+          <li>
+            <a routerLink="pedidos">Lista de estoques</a>
+          </li>
+          <li>
+            <a routerLink="novo-pedido">Nova movimentação</a>
+          </li>
+          <li>
+            <a routerLink="novo-pedido">Nova movimentação</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-category-divider">Docs</li>
+      <li>
+        <a href="#">
+          <span class="link-title">Documentação app</span>
+          <i class="mdi mdi-asterisk link-icon"></i>
+        </a>
+        <a href="#">
+          <span class="link-title">Documentação API</span>
+          <i class="mdi mdi-asterisk link-icon"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="page-content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>
